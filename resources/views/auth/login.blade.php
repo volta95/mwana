@@ -14,11 +14,34 @@
             </div>
             <div class="animated  zoomIn delay-3s">
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" name="name" required />
+            <input type="text" placeholder="Name" name="name" required />
+
+            @error('name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
             <input type="tel" placeholder="Phone" name="phone" required/>
+            @error('phone')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
             <input type="email" placeholder="Email" name="email" required/>
-			<input type="password" placeholder="Password" name="pass" required/>
-            <button>Register</button>
+
+            @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input type="password" placeholder="Password" name="password" required/>
+            @error('password')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            <button type="submit">Register</button>
             </div>
         </form>
 
@@ -48,9 +71,9 @@
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-right">
-                <h1 class="animated lightSpeedIn delay-2s">Welcome Back!</h1>
+                <h1 class="animated rotateInDownLeft delay-2s">Welcome Back!</h1>
                 <p id="log-text"></p>
-                <button class="ghost animated fadeInLeft delay-2s" id="signUp" onclick="typeWriters()">Sign Up</button>
+                <button class="ghost animated rollIn delay-2s" id="signUp" onclick="typeWriters()">Sign Up</button>
 
 			</div>
 			<div class="overlay-panel overlay-left">

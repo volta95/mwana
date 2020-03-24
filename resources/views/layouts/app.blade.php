@@ -42,7 +42,7 @@
                                     <h6>MY ACCOUNT</h6>
                                 @guest
 
-                                        <a class="login-link" href=""><i class="fas fa-key"></i>&nbspLOGIN</a>
+                                        <a class="login-link" href="{{route('login')}}"><i class="fas fa-key"></i>&nbspLOGIN</a>
                                     @else
                                          Auth::user()->name
                                  @endguest
@@ -52,15 +52,15 @@
                     </div>
                 </div>
             </div>
-            <div class="navi-bar">
+
+             <div class="navi-bar">
                 <div class="container">
                    <div class="row">
                        <div class="col-ld-9 col-md-9 col-sm-12 navi-item">
                            <ul class="navig">
                                 <li> CATEGORIES
-                                    <div class="categories-drop">
+                                    <i  class="fas fa-bars nav-toggle" id="nav-toggle"></i>
 
-                                    </div>
                                 </li>
                                 <li><a href="">HOME</a></li>
                                 <li><a href="">SALE</a></li>
@@ -69,6 +69,21 @@
                        </div>
                    </div>
                 </div>
+            </div>
+            <div class="container">
+                    <div class="cat-dropdown" id="dropdown-item">
+                        <ul>
+                            <li>CAKE</li>
+                            <li>ELECTRONICS</li>
+                            <li>CARS</li>
+                            <li>CAKE</li>
+                            <li>ELECTRONICS</li>
+                            <li>CARS</li>
+                            <li>CAKE</li>
+                            <li>ELECTRONICS</li>
+                            <li>CARS</li>
+                        </ul>
+                    </div>
             </div>
         </div>
             <main class="py-4">

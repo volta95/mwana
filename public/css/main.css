@@ -10,6 +10,14 @@
 *{
     box-sizing: border-box;
 }
+
+.hide{
+    display: none;
+
+}
+.show{
+    display: block;
+}
 /*=============authentication================*/
 #auth{
     height: 100vh;
@@ -349,7 +357,7 @@ h6{
 
 .navi-item ul li:first-child{
     background-color: #F71735;
-    padding-right: 140px;
+
     padding-top: 12px;
     padding-bottom: 15px;
     color: #fff;
@@ -371,4 +379,26 @@ h6{
  font-size:11px ;
  color: #FF9F1C;
  transition: all 0.6s ease-in;
+}
+
+.cat-dropdown{
+    font-size: 11px;
+    width: 257px;
+}
+.cat-dropdown ul{
+    list-style-type: none;
+}
+.cat-dropdown ul li{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border:1px solid #eee;
+    padding-left: 10px;
+
+}
+
+.nav-toggle{
+   margin-left: 130px;
+   padding-right: 6px;
+   cursor: pointer;
+
 }
