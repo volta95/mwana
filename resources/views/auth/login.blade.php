@@ -14,10 +14,10 @@
             </div>
             <div class="animated  zoomIn delay-3s">
 			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-            <input type="tel" placeholder="Phone" />
-            <input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" placeholder="Name" name="name" required />
+            <input type="tel" placeholder="Phone" name="phone" required/>
+            <input type="email" placeholder="Email" name="email" required/>
+			<input type="password" placeholder="Password" name="pass" required/>
             <button>Register</button>
             </div>
         </form>
