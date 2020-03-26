@@ -1,6 +1,7 @@
 <?php
-
+use App\Http\Middleware\CheckAuth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('Product', 'ProductController')->middleware(CheckAuth::class);

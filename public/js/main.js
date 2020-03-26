@@ -39,18 +39,4 @@ var speed = 100;
 
 /*  hide and show navigation */
 
-const navButton = document.getElementById('nav-toggle');
-const dropDownItem=document.getElementById('dropdown-item');
 
-navButton.addEventListener('click', () => {
-        if(dropDownItem.classList.contains('show')){
-            dropDownItem.classList.remove('show');
-            dropDownItem.classList.add('hide');
-        }
-        else{
-            dropDownItem.classList.remove('hide');
-            dropDownItem.classList.add('show');
-        }
-
-
-})

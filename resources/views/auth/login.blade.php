@@ -3,7 +3,8 @@
 @section('content')
 
 	<div class="form-container sign-up-container">
-		<form action="#">
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
 			<h1 class="animated fadeInDown delay-1s">Create Account</h1>
             <div class="social-container animated zoomIn delay-2s">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -41,13 +42,21 @@
                     <strong>{{ $message }}</strong>
                 </span>
               @enderror
+              <input id="password-confirm" placeholder="Confirm Password" type="password"  name="password_confirmation" required autocomplete="new-password">
+
             <button type="submit">Register</button>
             </div>
         </form>
 
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            @if (session('message'))
+                <div style="color:red;">
+                    {{ session('message') }}
+                </div>
+            @endif
 			<h1 class="animated fadeInDown delay-1s">Login</h1>
 			<div class="social-container animated zoomIn delay-2s">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -58,12 +67,12 @@
             </div>
             <div class="animated  zoomIn delay-3s">
                 <span>or use your account</span>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="email" placeholder="Email" name="email" />
+                <input type="password" placeholder="Password" name="password" />
 
 
                 <a href="#">Forgot your password?</a><br><br>
-                <button>Login</button>
+                <button type="submit">Login</button>
             </div>
 
 		</form>

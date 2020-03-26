@@ -11,12 +11,9 @@
     box-sizing: border-box;
 }
 
-.hide{
-    display: none;
 
-}
-.show{
-    display: block;
+.show {
+    display:block !important;
 }
 /*=============authentication================*/
 #auth{
@@ -114,7 +111,7 @@ button.ghost {
     color: #41EAD4;
 }
 
-form {
+#auth form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -125,7 +122,7 @@ form {
 	text-align: center;
 }
 
-input {
+#auth input {
 	background-color: #eee;
 	border: none;
 	padding: 8px 10px;
@@ -342,6 +339,7 @@ h6{
 
 .navi-item{
     margin-top: 4px;
+    margin-left: 0 !important;
 
 }
 
@@ -357,7 +355,7 @@ h6{
 
 .navi-item ul li:first-child{
     background-color: #F71735;
-
+    margin-left: 0 !important;
     padding-top: 12px;
     padding-bottom: 15px;
     color: #fff;
@@ -384,15 +382,21 @@ h6{
 .cat-dropdown{
     font-size: 11px;
     width: 257px;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    overflow: visible;
 }
 .cat-dropdown ul{
     list-style-type: none;
+
 }
 .cat-dropdown ul li{
     padding-bottom: 10px;
     padding-top: 10px;
     border:1px solid #eee;
     padding-left: 10px;
+    display: block;
 
 }
 
@@ -401,4 +405,21 @@ h6{
    padding-right: 6px;
    cursor: pointer;
 
+}
+
+.py-4{
+position: relative;
+}
+.img-preview{
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+
+}
+
+.file-upload{
+   background-color: #F71735;
+   padding: 10px 20px;
+   border-radius: 5px;
+   color: #41EAD4;
 }

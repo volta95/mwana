@@ -26,13 +26,13 @@
          <div class="nav-banner">
             <div class="container">
                 <div class="row logo-auth">
-                    <div class="col-lg-9 col-md-9 col-sm-6">
+                    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
                         <div class="logo-top">
                                 syucdagsklhj;
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-3 col-sm-6">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                         <div class="account-top">
 
                                 <div class=" nav-auth-user">
@@ -44,7 +44,8 @@
 
                                         <a class="login-link" href="{{route('login')}}"><i class="fas fa-key"></i>&nbspLOGIN</a>
                                     @else
-                                         Auth::user()->name
+                                         {{ Auth::user()->name }}
+
                                  @endguest
                                 </div>
 
@@ -62,14 +63,15 @@
                                     <i  class="fas fa-bars nav-toggle" id="nav-toggle"></i>
 
                                 </li>
-                                <li><a href="">HOME</a></li>
-                                <li><a href="">SALE</a></li>
+                                <li><a href="/">HOME</a></li>
+                                <li><a href="{{ url('Product/create') }}">SALE</a></li>
                                 <li><a href="">SMART INVESTOR</a></li>
                            </ul>
                        </div>
                    </div>
                 </div>
             </div>
+        </div>
             <div class="container">
                     <div class="cat-dropdown" id="dropdown-item">
                         <ul>
@@ -85,13 +87,21 @@
                         </ul>
                     </div>
             </div>
-        </div>
+
             <main class="py-4">
                 @yield('content')
             </main>
 
     </div>
+<script>
+    const navButton = document.getElementById('nav-toggle');
+const dropDownItem=document.getElementById('dropdown-item');
 
+navButton.addEventListener('click', () => {
+     dropDownItem.classList.toggle("show");
+
+})
+</script>
     <script src="{{ asset('js/wow.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
      <!-- font awesome -->
