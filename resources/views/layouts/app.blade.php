@@ -87,7 +87,7 @@
             <div class="container">
                     <div class="cat-dropdown" id="dropdown-item">
                         <ul>
-                            <li>CAKE</li>
+                            <li><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ELECTRONICS <i class="fa fa-angle-right"></i></a></li>
                             <li>ELECTRONICS</li>
                             <li>CARS</li>
                             <li>CAKE</li>

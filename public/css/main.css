@@ -56,6 +56,11 @@ a{
     text-decoration: none;
     margin: 15px 0;
 }
+a:hover, a:focus {
+	color: #F8694A;
+	text-decoration: none;
+	outline: none;
+  }
 h1 {
 	font-weight: bold;
 	margin: 0;
