@@ -5,7 +5,7 @@ Author: yaminncco
 Colors:
 	Body 		  : #4A4E5A
 	Headers 	: #30323A
-	Primary 	: #F8694A
+	Primary 	: #F71735
 	Dark 		  :	#30323A
 	Grey 		  : #DADADA #F6F7F8
 
@@ -79,13 +79,13 @@ a {
 }
 
 a:hover, a:focus {
-  color: #F8694A;
+  color: #F71735;
   text-decoration: none;
   outline: none;
 }
 
 .primary-color {
-  color: #F8694A;
+  color: #F71735;
 }
 
 .white-color {
@@ -143,14 +143,14 @@ hr {
 }
 
 .main-btn:hover, .main-btn:focus {
-  color: #F8694A;
-  -webkit-box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
-  box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
+  color: #F71735;
+  -webkit-box-shadow: 0px 0px 0px 1px #F71735 inset, 0px 0px 0px 0px #F71735;
+  box-shadow: 0px 0px 0px 1px #F71735 inset, 0px 0px 0px 0px #F71735;
 }
 
 .primary-btn {
   color: #FFF;
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 .primary-btn:hover, .primary-btn:focus {
@@ -175,8 +175,8 @@ hr {
 }
 
 .input:focus {
-  -webkit-box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
-  box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
+  -webkit-box-shadow: 0px 0px 0px 1px #F71735 inset, 0px 0px 0px 0px #F71735;
+  box-shadow: 0px 0px 0px 1px #F71735 inset, 0px 0px 0px 0px #F71735;
 }
 
 textarea.input {
@@ -204,8 +204,8 @@ textarea.input {
 
 .list-links .list-links-title {
   text-transform: uppercase;
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .list-links li>a {
@@ -232,7 +232,7 @@ textarea.input {
 }
 
 .list-links li>a:hover, .list-links li>a:focus, .list-links li.active>a {
-  color: #F8694A;
+  color: #F71735;
   -webkit-transform: translateX(10px);
   -ms-transform: translateX(10px);
   transform: translateX(10px);
@@ -275,7 +275,7 @@ textarea.input {
   bottom: -1.5px;
   height: 3px;
   width: 60px;
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 /*----------------------------*\
@@ -296,7 +296,7 @@ textarea.input {
 }
 
 .breadcrumb>.active {
-  color: #F8694A;
+  color: #F71735;
 }
 
 .breadcrumb>li+li:before {
@@ -342,47 +342,11 @@ textarea.input {
 .header-logo {
   display: inline-block;
   margin-right: 15px;
-} 
+}
 
 .header-logo .logo>img {
   width: 100%;
   max-height: 70px;
-}
-
-/*----------------------------*\
-	Search header
-\*----------------------------*/
-
-.header-search {
-  display: inline-block;
-  padding: 15px 0px;
-  max-width: 400px;
-}
-
-.header-search>form {
-  position: relative;
-}
-
-.header-search>form .search-input {
-  padding-left: 150px;
-  padding-right: 45px;
-}
-
-.header-search>form .search-categories {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 135px;
-}
-
-.header-search>form .search-btn {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width: 40px;
-  height: 40px;
-  background-color: transparent;
-  border: none;
 }
 
 /*----------------------------*\
@@ -419,7 +383,7 @@ textarea.input {
 
 .header-account.dropdown .custom-menu>li>a>i {
   margin-right: 15px;
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*----------------------------*\
@@ -435,13 +399,13 @@ textarea.input {
   line-height: 18px;
   text-align: center;
   font-size: 10px;
-  background: #F8694A;
+  background: #F71735;
   color: #FFF;
   border-radius: 50%;
 }
 
 .header-cart.dropdown .custom-menu {
-  width: 300px;
+  width: 200px;
 }
 
 #shopping-cart .shopping-cart-list {
@@ -468,6 +432,7 @@ textarea.input {
 
 #navigation {
   background-color: #30323A;
+  height: 47.5px !important;
 }
 
 #navigation .container {
@@ -487,7 +452,7 @@ textarea.input {
   padding: 15px;
   display: block;
   text-transform: uppercase;
-  background: #F8694A;
+  background: #F71735;
   color: #FFF;
   font-weight: 700;
 }
@@ -536,12 +501,12 @@ textarea.input {
 
 .category-nav .category-list>li>a {
   display: block;
-  padding: 15px;
+  padding: 0px 10px;
   text-transform: uppercase;
 }
 
 .category-nav .category-list>li>a:hover, .category-nav .category-list>li>a:focus, .category-nav .category-list>li.dropdown.open>a {
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*----------------------------*\
@@ -550,7 +515,7 @@ textarea.input {
 
 .menu-nav .menu-header {
   display: none;
-  padding: 15px;
+  padding: 10px;
   text-transform: uppercase;
   background: #30323A;
   color: #FFF;
@@ -568,13 +533,13 @@ textarea.input {
 
 .menu-nav .menu-list>li>a {
   display: block;
-  padding: 15px;
+  padding: 0px 15px;
   color: #FFF;
   text-transform: uppercase;
 }
 
 .menu-nav .menu-list>li>a:hover, .menu-nav .menu-list>li>a:focus, .menu-nav .menu-list>li.dropdown.open>a {
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*----------------------------*\
@@ -583,7 +548,7 @@ textarea.input {
 
 .custom-menu {
   position: absolute;
-  padding: 15px;
+  padding: 10px;
   background: #FFF;
   -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
@@ -594,6 +559,7 @@ textarea.input {
   visibility: hidden;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
+
 }
 
 .dropdown.open>.custom-menu {
@@ -604,8 +570,8 @@ textarea.input {
 /*-- Default Dropdown --*/
 
 .dropdown.default-dropdown>.custom-menu {
-  border-top: 2px solid #F8694A;
-  left: 50%;
+  border-top: 2px solid #F71735;
+  left: 0% !important;
   -webkit-transform: translateX(-50%) translateY(15px);
   -ms-transform: translateX(-50%) translateY(15px);
   transform: translateX(-50%) translateY(15px);
@@ -615,7 +581,7 @@ textarea.input {
   -webkit-transform: translateX(-50%) translateY(0px);
   -ms-transform: translateX(-50%) translateY(0px);
   transform: translateX(-50%) translateY(0px);
-} 
+}
 
 .dropdown.default-dropdown>.custom-menu>li>a {
   display: block;
@@ -630,13 +596,13 @@ textarea.input {
 }
 
 .dropdown.mega-dropdown>.custom-menu {
-  border-top: 2px solid #F8694A;
+  border-top: 2px solid #F71735;
   left: 0;
   -webkit-transform: translate(0px, 15px);
   -ms-transform: translate(0px, 15px);
   transform: translate(0px, 15px);
   width: auto;
-  min-width: 750px;
+  min-width: 700px;
   max-width: 100%;
 }
 
@@ -653,7 +619,7 @@ textarea.input {
 /*-- Side Dropdown --*/
 
 .dropdown.side-dropdown>.custom-menu {
-  border-left: 2px solid #F8694A;
+  border-left: 2px solid #F71735;
   left: 100%;
   top: 0;
   width: 750px;
@@ -715,7 +681,7 @@ textarea.input {
     -webkit-box-shadow: none;
     box-shadow: none;
     border-top: none;
-    border-left: 2px solid #F8694A;
+    border-left: 2px solid #F71735;
   }
   #responsive-nav .dropdown.open .custom-menu {
     display: block;
@@ -826,7 +792,7 @@ textarea.input {
 ===========================================================*/
 
 .product .product-old-price {
-  color: #F8694A;
+  color: #F71735;
   font-size: 70%;
 }
 
@@ -853,7 +819,7 @@ textarea.input {
 }
 
 .product .product-label>span.sale {
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 .product .product-countdown {
@@ -877,7 +843,7 @@ textarea.input {
   color: #FFF;
   font-weight: 700;
   padding: 10px;
-  background: #F8694A;
+  background: #F71735;
 }
 
 /*----------------------------*\
@@ -996,7 +962,7 @@ textarea.input {
 /*-- hot product --*/
 
 .product.product-single.product-hot {
-  border: 2px solid #F8694A;
+  border: 2px solid #F71735;
 }
 
 .product.product-single.product-hot .product-btns {
@@ -1101,7 +1067,7 @@ textarea.input {
   bottom: -1.5px;
   height: 3px;
   width: 60px;
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 /*-- Filter list --*/
@@ -1156,7 +1122,7 @@ textarea.input {
 }
 
 .noUi-connect {
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 .noUi-horizontal {
@@ -1224,7 +1190,7 @@ textarea.input {
 }
 
 .row-filter>a.active {
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 .sort-filter {
@@ -1261,7 +1227,7 @@ textarea.input {
 }
 
 .store-pages li.active {
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*=========================================================
@@ -1291,8 +1257,8 @@ textarea.input {
 
 #product-view .product-view.slick-slide.slick-current {
   opacity: 1;
-  -webkit-box-shadow: 0px 0px 0px 2px #F8694A inset;
-  box-shadow: 0px 0px 0px 2px #F8694A inset;
+  -webkit-box-shadow: 0px 0px 0px 2px #F71735 inset;
+  box-shadow: 0px 0px 0px 2px #F71735 inset;
 }
 
 #product-view .product-view {
@@ -1346,8 +1312,8 @@ textarea.input {
 }
 
 .size-option>li.active a {
-  color: #F8694A;
-  border-color: #F8694A;
+  color: #F71735;
+  border-color: #F71735;
 }
 
 .color-option>li {
@@ -1368,8 +1334,8 @@ textarea.input {
 }
 
 .color-option>li.active a {
-  -webkit-box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F8694A;
-  box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F8694A;
+  -webkit-box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F71735;
+  box-shadow: 0px 0px 0px 2px #FFF, 0px 0px 0px 3px #F71735;
 }
 
 .product.product-details .qty-input {
@@ -1413,7 +1379,7 @@ textarea.input {
 }
 
 .product-tab .tab-nav li.active a {
-  color: #F8694A;
+  color: #F71735;
 }
 
 .product-tab .tab-nav li.active a:after {
@@ -1423,7 +1389,7 @@ textarea.input {
   bottom: -1.5px;
   height: 3px;
   width: 30px;
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 /*-- reviews --*/
@@ -1468,7 +1434,7 @@ textarea.input {
 }
 
 .reviews-pages li.active {
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*-- review form --*/
@@ -1586,7 +1552,7 @@ textarea.input {
 
 .shopping-cart-table>tfoot>tr>.total {
   font-size: 24px;
-  color: #F8694A;
+  color: #F71735;
 }
 
 /*=========================================================
@@ -1648,7 +1614,7 @@ textarea.input {
 }
 
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
-  background: #F8694A;
+  background: #F71735;
 }
 
 .slick-prev:before, .slick-next:before {
@@ -1688,7 +1654,7 @@ textarea.input {
 }
 
 .slick-dots li.slick-active button:before {
-  background-color: #F8694A;
+  background-color: #F71735;
 }
 
 .custom-dots .slick-dots {

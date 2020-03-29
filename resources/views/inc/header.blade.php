@@ -3,7 +3,7 @@
     <div id="top-header">
         <div class="container">
             <div class="pull-left">
-                <span>Welcome to E-shop!</span>
+                <span>Welcome to Smart Market</span>
             </div>
         </div>
     </div>
@@ -22,17 +22,7 @@
                 <!-- /Logo -->
 
                 <!-- Search -->
-                <div class="header-search">
-                    <form>
-                        <input class="input search-input" type="text" placeholder="Enter your keyword">
-                        <select class="input search-categories">
-                            <option value="0">All Categories</option>
-                            <option value="1">Category 01</option>
-                            <option value="1">Category 02</option>
-                        </select>
-                        <button class="search-btn"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
+
                 <!-- /Search -->
             </div>
             <div class="pull-right">
@@ -43,13 +33,21 @@
                             <div class="header-btns-icon">
                                 <i class="fa fa-user-o"></i>
                             </div>
-                            <strong class="text-uppercase">My Account <i class="fa fa-caret-down"></i></strong>
+                            <strong class="text-uppercase">My Account </strong>
                         </div>
-                        <a href="#" class="text-uppercase">Login</a> / <a href="#" class="text-uppercase">Join</a>
-                        <ul class="custom-menu">
-                            <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+                        @guest
+                        <a href="{{ route('login') }}" class="text-uppercase">Login</a>
+                        @else
+                        <h6 class="user-name">{{ Auth::user()->name }}</h6>
+                        @endguest
+
+                        <ul class="custom-menu animated flipInY">
+                            @if(Auth::check())
+                            <li><a href="#"><i class="fa fa-user-o"></i> My Products</a></li>
+                            <li><a href="#"><i class="fa fa-user-o"></i> Logout</a></li>
+                            @else
                             <li><a href="{{route('login')}}"><i class="fa fa-unlock-alt"></i> Login</a></li>
-                            <li><a href="{{route('login')}}"><i class="fa fa-user-plus"></i> Create An Account</a></li>
+                            @endif
                         </ul>
                     </li>
                     <!-- /Account -->

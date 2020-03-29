@@ -7,10 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>E-SHOP HTML Template</title>
+	 <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
 	<!-- Google font -->
-	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+
+     <!-- Fonts -->
+     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
 
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
@@ -25,7 +32,8 @@
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
 
-	<!-- Custom stlylesheet -->
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{asset('css/main.css')}}" />
 	<link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}" />
 	<link type="text/css" rel="stylesheet" href="{{asset('css/search.css')}}" />
 
@@ -48,22 +56,31 @@
 	<!-- /NAVIGATION -->
 
     <!-- OTHERPAGES-->
-     
+
      @yield('content')
-    
+
     <!-- /OTHERPAGES-->
 
 	<!-- FOOTER -->
 	@include('inc.footer')
 	<!-- /FOOTER -->
 
-	<!-- jQuery Plugins -->
+    <!-- jQuery Plugins -->
+
+
 	<script src="{{asset('js/jquery.min.js')}}"></script>
 	<script src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('js/slick.min.js')}}"></script>
 	<script src="{{asset('js/nouislider.min.js')}}"></script>
-	<script src="{{asset('js/jquery.zoom.min.js')}}"></script>
-	<script src="{{asset('js/main1.js')}}"></script>
+    <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
+    <script src="{{ asset('js/wow.js') }}" defer></script>
+    <script src="{{ asset('js/viewer.js') }}" defer></script>
+    <script src="{{asset('js/main1.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+
+
+   <!-- font awesome -->
+   <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>
 
 </body>
 
