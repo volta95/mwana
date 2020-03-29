@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Auth;
 
 use Closure;
 
@@ -16,7 +17,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(!Auth::check() || Auth::user()->role !== 1){
-            return redirect()->back();
+                return redirect('Page');
         }
         return $next($request);
     }

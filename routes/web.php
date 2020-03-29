@@ -20,6 +20,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/Page', function () {
+    return view('Page');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -28,7 +31,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('Product/create', 'ProductController@create')->middleware(CheckAuth::class);
 Route::get('/Product/{id}/edit','ProductController@edit')->middleware(CheckAuth::class);
 Route::resource('Product', 'ProductController');
+
 Route::resource('Category', 'CategoryController')->middleware(CheckAdmin::class);
+Route::resource('Subcategory', 'SubcategoryController')->middleware(CheckAdmin::class);
+
 Route::get('/subcategory/{id}','ProductController@getsubcategory');
 
 
