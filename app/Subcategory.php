@@ -17,11 +17,13 @@ class Subcategory extends Model
 
     public function user()
     {
-        return $this->hasOne('App\User', 'user_id', 'id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
+
 
     public function category()
     {
-        return $this->hasMany('App\Category', 'category_id', 'id');
+        return $this->belongsTo('App\Category', 'category_id', 'id');
     }
+
 }

@@ -1,5 +1,6 @@
 <?php
 use App\Http\Middleware\CheckAuth;
+use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,4 +24,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::resource('Product', 'ProductController')->middleware(CheckAuth::class);
+
+Route::get('Product/create', 'ProductController@create')->middleware(CheckAuth::class);
+Route::get('/Product/{id}/edit','ProductController@edit')->middleware(CheckAuth::class);
+Route::resource('Product', 'ProductController');
+Route::resource('Category', 'CategoryController')->middleware(CheckAdmin::class);
+Route::get('/subcategory/{id}','ProductController@getsubcategory');
+
+

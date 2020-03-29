@@ -16,6 +16,8 @@ signInButton.addEventListener('click', () => {
 });
 
 
+
+
 function typeWriters() {
    if (d < txts.length) {
     document.getElementById("reg-text").innerHTML += txts.charAt(d);
@@ -39,4 +41,4 @@ var speed = 100;
 
 /*  hide and show navigation */
 
-
+new WOW().init();
