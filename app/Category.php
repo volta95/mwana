@@ -15,7 +15,7 @@ class Category extends Model
     //relationship
     public function subcategories()
         {
-            return $this->hasMany('App\Subcategory', 'category_id', 'id');
+            return $this->belongToMany('App\Subcategory', 'category_id', 'id');
         }
 
     public function user()

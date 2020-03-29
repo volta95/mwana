@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
      <!-- Scripts -->
-     <script src="{{ asset('js/jquery.js') }}" defer></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
      <script src="{{ asset('js/bootstrap.js') }}" defer></script>
 
      <!-- Fonts -->
@@ -44,7 +44,19 @@
 
                                         <a class="login-link" href="{{route('login')}}"><i class="fas fa-key"></i>&nbspLOGIN</a>
                                     @else
-                                         {{ Auth::user()->name }}
+
+                                        <a href="#" class="dropdown-bt user-name" id="dropdwn" data-toggle="dropdown">{{Auth::user()->name}}<i class="fas fa-caret-down"></i></a>
+                                         <ul class="account animated flipInY" id="account">
+                                             <li><a href="page-profile2.html"><i class="icon-user"></i>My Product</a></li>
+                                             <li><a href="{{ route('logout') }}" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"><i class="icon-power"></i>Logout</a>
+                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                     @csrf
+                                                 </form>
+                                             </li>
+                                         </ul>
+
+                                     </div>
 
                                  @endguest
                                 </div>
@@ -100,12 +112,19 @@ const dropDownItem=document.getElementById('dropdown-item');
 navButton.addEventListener('click', () => {
      dropDownItem.classList.toggle("show");
 
-})
+});
+const dropDwn = document.getElementById('dropdwn');
+const account = document.getElementById('account');
+dropDwn.addEventListener( 'click',()=>{
+    account.classList.toggle("show");
+});
 </script>
     <script src="{{ asset('js/wow.js') }}" defer></script>
+    <script src="{{ asset('js/viewer.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
-     <!-- font awesome -->
-     <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>
 
 </body>
 </html>

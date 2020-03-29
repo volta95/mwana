@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Product;
+use App\Category;
+Use App\Subcategory;
+Use App\Image;
+use Storage;
 
 class ProductController extends Controller
 {
@@ -24,11 +29,18 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        //Category detail
 
-            return view('Product.new');
+            $categories=Category::all();
+            return view('Product.new',['categories'=>$categories]);
 
 
+    }
+
+    public function getsubcategory($id)
+    {
+        $subcategory = Subcategory::where("category_id",$id)->pluck("name","id");
+        return json_encode($subcategory);
     }
 
     /**
@@ -40,6 +52,46 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+
+
+        $validatedData = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'description' => 'required|min:6',
+            'subcategory' =>'required|numeric',
+            'location' => 'required',
+            'price' => 'required|numeric|min:3',
+        ]);
+        foreach($request->upload_file as $image){
+            $validatedData=$request->validate([
+                'image' => 'mimes:jpeg,bmp,png,jpg',
+            ]);
+        }
+
+        $product=Product::create([
+            'title'=>$request['title'],
+            'description'=>$request['description'],
+            'subcategory_id'=>$request['subcategory'],
+            'location'=>$request['location'],
+            'status'=>1,
+            'price'=>$request['price'],
+            'user_id'=>Auth::user()->id,
+        ]);
+
+        if($product){
+            foreach($request->upload_file as $image){
+                $photo = $image->store('public/product');
+                $images=Image::create([
+                    'name'=>$photo,
+                    'product_id'=>$product->id,
+                ]);
+            }
+
+            return redirect()->action('ProductController@show', ['id' => $product->id]);
+        }
+        else{
+
+        }
+
     }
 
     /**
@@ -50,7 +102,17 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        //show product
+
+        $product=Product::where('id',$id)->first();
+
+            if($product){
+            return view('Product.show',['product'=>$product]);
+            }
+            else{
+                return redirect()->route('Product.index')->with('error','Product not found');
+            }
+
     }
 
     /**
@@ -61,7 +123,14 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        //check if your owner or admin
+        $product=Product::where('id',$id)->first();
+        $categories=Category::all();
+        if(Auth::user()->id==$product->user->id || Auth::user()->role==1){
+            return view('Product.edit',['product'=>$product,'categories'=>$categories]);
+        } else{
+             return redirect()->back()->withInput('error','You can not perform this action');
+        }
     }
 
     /**
@@ -84,6 +153,15 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+         //delete Product
+         $findProduct=Product::find($id);
+         foreach($findProduct->images as $image){
+            Storage::delete($image->name);
+         }
+         if($findProduct->delete()){
+             return redirect()->route('Product.index')->with('success','Product deleted successfully');
+         }
+         return back()->withInput()->with('error','Product could not deleted try again');
+
     }
 }
