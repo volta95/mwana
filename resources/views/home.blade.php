@@ -19,7 +19,7 @@
       data_incomestat.addColumn('string', 'Topping');
       data_incomestat.addColumn('number', 'Slices');
       data_incomestat.addRows([
-        ['Luxury', {{ $L }}],
+        ['Luxury', {{ $L ?? '' }}],
         ['Semi Luxury',{{ $S }}],
         ['Normal', {{ $N }}]
 

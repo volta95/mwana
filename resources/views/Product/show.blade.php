@@ -1,9 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
+	<!-- BREADCRUMB -->
+	<div id="breadcrumb">
+		<div class="container">
+			<ul class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Products</a></li>
+				<li><a href="#">Category</a></li>
+				<li class="active">{{ $product->title }}</li>
+			</ul>
+		</div>
+	</div>
+	<!-- /BREADCRUMB -->
+
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" >
             <div class="gallery">
                 <div id="photo-viewer"></div>
             </div>

@@ -16,7 +16,8 @@
                 <!-- Logo -->
                 <div class="header-logo">
                     <a class="logo" href="#">
-                        <img src="{{url('./images/logo.png')}}" alt="">
+                        Logo
+                        <img src="{{url('')}}" alt="">
                     </a>
                 </div>
                 <!-- /Logo -->
@@ -33,18 +34,22 @@
                             <div class="header-btns-icon">
                                 <i class="fa fa-user-o"></i>
                             </div>
-                            <strong class="text-uppercase">My Account </strong>
+                            <strong class="text-uppercase" style="font-size:14px">My Account </strong>
                         </div>
                         @guest
                         <a href="{{ route('login') }}" class="text-uppercase">Login</a>
                         @else
-                        <h6 class="user-name">{{ Auth::user()->name }}</h6>
+                        <h6 class="user-name" style="font-size:14px;margin-top:2px;">{{ Auth::user()->name }}</h6>
                         @endguest
 
                         <ul class="custom-menu animated flipInY">
                             @if(Auth::check())
                             <li><a href="#"><i class="fa fa-user-o"></i> My Products</a></li>
-                            <li><a href="#"><i class="fa fa-user-o"></i> Logout</a></li>
+                            <li><a href="#" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i> Logout</a></li>
+                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             @else
                             <li><a href="{{route('login')}}"><i class="fa fa-unlock-alt"></i> Login</a></li>
                             @endif

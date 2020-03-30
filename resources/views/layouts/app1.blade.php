@@ -46,7 +46,7 @@
 
 </head>
 
-<body>
+<body style="height:100%">
 	<!-- HEADER -->
 	 @include('inc.header')
 	<!-- /HEADER -->
@@ -56,9 +56,9 @@
 	<!-- /NAVIGATION -->
 
     <!-- OTHERPAGES-->
-
+    <div style="min-height:100%">
      @yield('content')
-
+    </div>
     <!-- /OTHERPAGES-->
 
 	<!-- FOOTER -->
@@ -74,10 +74,10 @@
 	<script src="{{asset('js/nouislider.min.js')}}"></script>
     <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
     <script src="{{ asset('js/wow.js') }}" defer></script>
-    <script src="{{ asset('js/viewer.js') }}" defer></script>
+
     <script src="{{asset('js/main1.js')}}"></script>
     <script src="{{asset('js/main.js')}}"></script>
-
+    <script src="{{ asset('js/viewer.js') }}" defer></script>
 
    <!-- font awesome -->
    <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>

@@ -2,6 +2,8 @@
 use App\Http\Middleware\CheckAuth;
 use App\Http\Middleware\CheckAdmin;
 use Illuminate\Support\Facades\Route;
+use App\Product;
+use App\Category;
 
 
 /*
@@ -16,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    $products=Product::simplePaginate(20);
+    $categories=Category::all();
+    return view('homepage',['products'=>$products,'categories'=>$categories]);
 });
 
 Auth::routes();

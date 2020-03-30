@@ -1,130 +1,87 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	 <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-     <!-- Scripts -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+	<!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
 
      <!-- Fonts -->
      <link rel="dns-prefetch" href="//fonts.gstatic.com">
      <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-     <!-- Styles -->
-     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
+
+	<!-- Slick -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/slick.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{asset('css/slick-theme.css')}}" />
+
+	<!-- nouislider -->
+	<link type="text/css" rel="stylesheet" href="{{asset('css/nouislider.min.css')}}" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{asset('css/main.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}" />
+	<link type="text/css" rel="stylesheet" href="{{asset('css/search.css')}}" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
 </head>
-<body>
-    <div id="app">
 
-         <div class="nav-banner">
-            <div class="container">
-                <div class="row logo-auth">
-                    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6">
-                        <div class="logo-top">
-                                syucdagsklhj;
-                        </div>
-                    </div>
+<body style="height:100%">
+	<!-- HEADER -->
+	 @include('inc.header')
+	<!-- /HEADER -->
 
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <div class="account-top">
+	<!-- NAVIGATION -->
+	@include('inc.nav')
+	<!-- /NAVIGATION -->
 
-                                <div class=" nav-auth-user">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <div class=" nav-auth-words">
-                                    <h6>MY ACCOUNT</h6>
-                                @guest
-
-                                        <a class="login-link" href="{{route('login')}}"><i class="fas fa-key"></i>&nbspLOGIN</a>
-                                    @else
-
-                                        <a href="#" class="dropdown-bt user-name" id="dropdwn" data-toggle="dropdown">{{Auth::user()->name}}<i class="fas fa-caret-down"></i></a>
-                                         <ul class="account animated flipInY" id="account">
-                                             <li><a href="page-profile2.html"><i class="icon-user"></i>My Product</a></li>
-                                             <li><a href="{{ route('logout') }}" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();"><i class="icon-power"></i>Logout</a>
-                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                     @csrf
-                                                 </form>
-                                             </li>
-                                         </ul>
-
-                                     </div>
-
-                                 @endguest
-                                </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-             <div class="navi-bar">
-                <div class="container">
-                   <div class="row">
-                       <div class="col-ld-9 col-md-9 col-sm-12 navi-item">
-                           <ul class="navig">
-                                <li> CATEGORIES
-                                    <i  class="fas fa-bars nav-toggle" id="nav-toggle"></i>
-
-                                </li>
-                                <li><a href="/">HOME</a></li>
-                                <li><a href="{{ url('Product/create') }}">SALE</a></li>
-                                <li><a href="">SMART INVESTOR</a></li>
-                           </ul>
-                       </div>
-                   </div>
-                </div>
-            </div>
-        </div>
-            <div class="container">
-                    <div class="cat-dropdown" id="dropdown-item">
-                        <ul>
-                            <li><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ELECTRONICS <i class="fa fa-angle-right"></i></a></li>
-                            <li>ELECTRONICS</li>
-                            <li>CARS</li>
-                            <li>CAKE</li>
-                            <li>ELECTRONICS</li>
-                            <li>CARS</li>
-                            <li>CAKE</li>
-                            <li>ELECTRONICS</li>
-                            <li>CARS</li>
-                        </ul>
-                    </div>
-            </div>
-
-            <main class="py-4">
-                @yield('content')
-            </main>
-
+    <!-- OTHERPAGES-->
+    <div style="min-height:100%">
+     @yield('content')
     </div>
-<script>
-    const navButton = document.getElementById('nav-toggle');
-const dropDownItem=document.getElementById('dropdown-item');
+    <!-- /OTHERPAGES-->
 
-navButton.addEventListener('click', () => {
-     dropDownItem.classList.toggle("show");
+	<!-- FOOTER -->
+	@include('inc.footer')
+	<!-- /FOOTER -->
 
-});
-const dropDwn = document.getElementById('dropdwn');
-const account = document.getElementById('account');
-dropDwn.addEventListener( 'click',()=>{
-    account.classList.toggle("show");
-});
-</script>
+    <!-- jQuery Plugins -->
+
+
+	<script src="{{asset('js/jquery.min.js')}}"></script>
+	<script src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{asset('js/slick.min.js')}}"></script>
+	<script src="{{asset('js/nouislider.min.js')}}"></script>
+    <script src="{{asset('js/jquery.zoom.min.js')}}"></script>
     <script src="{{ asset('js/wow.js') }}" defer></script>
-    <script src="{{ asset('js/viewer.js') }}" defer></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
 
-    <!-- font awesome -->
-    <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>
+    <script src="{{asset('js/main1.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{ asset('js/viewer.js') }}" defer></script>
+
+   <!-- font awesome -->
+   <script src="https://kit.fontawesome.com/2e5f65967e.js" crossorigin="anonymous"></script>
 
 </body>
+
 </html>

@@ -1,7 +1,7 @@
 	@extends('layouts.app1')
 
 	@section('content')
-	
+
 	<!-- HOME -->
 	<div id="home">
 		<!-- container -->
@@ -62,307 +62,39 @@
 					</div>
 				</div>
 				<!-- section title -->
+                @foreach ($products as $product )
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product01.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<h2 class="product-name"><a href="#">Location</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
+                    <!-- Product Single -->
+                    <div class="col-md-3 col-sm-6 col-xs-6">
+                        <div class="product product-single">
+                            <div class="product-thumb">
+                            <a href="Product/{{ $product->id}}"><button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button></a>
+                                <img src="{{ Storage::url( $product->images[0]->name ) }}" alt="" style="height:250px">
+                            </div>
+                            <div class="product-body">
+                                <h3 class="product-price" style="text-align:center !imporant;width:100%">Price:{{ number_format($product->price,3 )}}</h3>
+                                <h2 class="product-name"><a style="text-align:center" href="Product/{{ $product->id  }}">{{ substr($product->title, 0, 30)}}</a></h2>
+                                <h2 class="product-name"><a href="#">Location:{{ $product->location }}</a></h2>
+                                <div class="product-btns">
+                                    <a href="sms:{{$product->user->phone}}&body=enquire%20from%20smart%20market%20product%20{{$product->title}}%20with%20price%20{{$product->price}}%20http://127.0.0.1:8000/Product{{$product->id}}"><button class="main-btn icon-btn"><i class="fa fa-comment"></i></button></a>
+                                    <a href="whatsapp://:{{$product->user->phone}}&body=enquire%20from%20smart%20market%20product%20{{$product->title}}%20with%20price%20{{$product->price}}%20http://127.0.0.1:8000/Product{{$product->id}}"><button class="main-btn icon-btn"><i class="fab fa-whatsapp"></i></button></a>
+                                    <a href="tel:{{ $product->user->phone }}"> <button class="main-btn icon-btn"><i class="fa fa-phone"></i></button></a>
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product02.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<h2 class="product-name"><a href="#"><i class="fa fa-map-marker-alt"></i>Location</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product03.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
+                @endforeach
+                           {{ $products->links() }}
 
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product04.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
-
-			<!-- row -->
-			<div class="row">
-				<!-- banner -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="banner banner-2">
-						<img src="{{url('./images/banner15.jpg')}}" alt="">
-						<div class="banner-caption">
-							<h2 class="white-color">NEW<br>COLLECTION</h2>
-							<button class="primary-btn">Shop Now</button>
-						</div>
-					</div>
-				</div>
-				<!-- /banner -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product07.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product06.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-							
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product05.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
-
-			<!-- row -->
-			<div class="row">
-				<!-- section title -->
-				<div class="col-md-12">
-					<div class="section-title">
-						<h2 class="title">Picked For You</h2>
-					</div>
-				</div>
-				<!-- section title -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product04.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product03.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50</h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-							
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product02.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-							<img src="{{url('./images/product01.jpg')}}" alt="">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-							
-							<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-							<div class="product-btns">
-								<button class="main-btn icon-btn"><i class="fa fa-comment"></i></button>
-								<button class="main-btn icon-btn"><i class="fa fa-phone"></i></button>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
 		</div>
 		<!-- /container -->
 	</div>
-	<!-- /section -->	
+	<!-- /section -->
 
 	@endsection
 
-	
+
 
 

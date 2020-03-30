@@ -405,7 +405,7 @@ textarea.input {
 }
 
 .header-cart.dropdown .custom-menu {
-  width: 200px;
+  width: 70px;
 }
 
 #shopping-cart .shopping-cart-list {
@@ -554,7 +554,7 @@ textarea.input {
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
   z-index: 100;
   top: 100%;
-  min-width: 200px;
+  max-width: 200px;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: 0.3s all;
@@ -1559,43 +1559,41 @@ textarea.input {
 	10 -> FOOTER
 ===========================================================*/
 
-.footer {
-  margin: 15px 0px;
-}
+footer {
+  background-color:#011627; ;
+  height: 70px;
+  flex-direction: column;
+  justify-content: space-between;
+  display:flex;
+  width:100% ;
+  margin-top: 50px;
 
-.footer .footer-header {
-  font-size: 18px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.footer-logo {
-  margin-bottom: 30px;
-}
-
-.footer-logo .logo {
-  display: inline-block;
-}
-
-.footer-logo .logo>img {
-  width: 100%;
-  max-height: 70px;
-}
-
-.footer-social>li {
-  display: inline-block;
-  margin-right: 15px;
-  margin-bottom: 6px;
-}
-
-.footer-social>li:last-child {
-  margin-right: 0px;
 }
 
 .footer-copyright {
-  margin-top: 15px;
   text-transform: uppercase;
   font-size: 14px;
+  color: #FFF;
+  margin-top: 30px;
+}
+.footer-social{
+    color: #FFB656;
+    float: right;
+}
+.footer-social li{
+    display: inline;
+    padding:0 5px;
+
+}
+
+.footer-social li i{
+    color: #FFB656;
+    padding-top: 50px;
+}
+
+.footer-social li i:hover{
+    color: #41EAD4;
+    padding-top: 50px;
 }
 
 /*=========================================================
