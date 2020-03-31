@@ -93,7 +93,9 @@ class ProductController extends Controller
                 ]);
             }
 
-            return redirect()->action('ProductController@show', ['id' => $product->id]);
+            return redirect()->action(
+                'ProductController@show',['id' => $product->id]
+            );
         }
         else{
 
@@ -112,9 +114,10 @@ class ProductController extends Controller
         //show product
 
         $product=Product::where('id',$id)->first();
+        $categories=Category::all();
 
             if($product){
-            return view('Product.show',['product'=>$product]);
+            return view('Product.show',['product'=>$product,'categories'=>$categories]);
             }
             else{
                 return redirect()->route('Product.index')->with('error','Product not found');
