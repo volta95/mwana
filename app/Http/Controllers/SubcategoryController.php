@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Subcategory;
+use App\Category;
+use Auth;
 
 class SubcategoryController extends Controller
 {
@@ -24,6 +27,8 @@ class SubcategoryController extends Controller
     public function create()
     {
         //
+        $category=Category::all();
+        return view('admin.subcategory.new',['categories'=>$category]);
     }
 
     /**
@@ -35,6 +40,11 @@ class SubcategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $category=Subcategory::create([
+            'name'=>$request['name'],
+            'category_id'=>$request['category'],
+            'user_id'=>Auth::user()->id,
+        ]);
     }
 
     /**
