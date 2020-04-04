@@ -14,7 +14,7 @@
                                         <ul class="list-links">
 
                                         @foreach ($category->subcategories as $subcategory )
-                                                <li><a href="">{{ $subcategory->name }}</a></li>
+                                        <li><a href="{{  url('/view/'.$subcategory->id) }}"> {{ $subcategory->name   }}</a></li>
                                         @endforeach
 
                                         </ul>

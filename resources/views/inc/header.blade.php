@@ -44,6 +44,9 @@
 
                         <ul class="custom-menu animated flipInY">
                             @if(Auth::check())
+                            @if(Auth::user()->role==1)
+                            <li><a href="{{ url('/home') }}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                            @endif
                             <li><a href="#"><i class="fa fa-user-o"></i> My Products</a></li>
                             <li><a href="#" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i> Logout</a></li>

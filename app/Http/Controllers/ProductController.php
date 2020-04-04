@@ -27,6 +27,16 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $categories=Category::all();
+        $products=Product::all();
+        return view('Products',['products'=>$products,'categories'=>$categories]);
+    }
+
+    public function subcategory($id)
+    {
+        $categories=Category::all();
+        $products=Product::where("subcategory_id",$id)->get();
+        return view('Products',['products'=>$products,'categories'=>$categories]);
     }
 
     /**

@@ -30,7 +30,7 @@ Route::get('/Page', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Route::get('/view/{id}','ProductController@subcategory');
 
 
 Route::resource('Product', 'ProductController');

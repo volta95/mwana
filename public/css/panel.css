@@ -1,1001 +1,470 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
+/*===============generic===================*/
 
+@import "../icon/css/all.css";
 @import "bootstrap.css";
 @import "grid.css";
 @import "reboot.css";
 @import "animate.css";
 
 
-
-
-/*====================================================
-                       CONTENT (Generic)
-======================================================*/
-ul{
+ul {
     list-style-type: none;
 }
-a:hover{
-    text-decoration: none
-}
-.icon-blue{
-    color: #007bff;
-    font-size: 17px;
-}
-.logo{
-    height: 40px;
-    width: 100px;
-}
-.list-unstyled {
-    padding-left: 0;
-    list-style: none;
+
+a {
+    color: #011627;
 }
 
-dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
+a:hover {
+    color: #41ead4;
+    text-decoration: none;
 }
 
+.bg-blue {
+    background: #011627 !important;
+}
 
-#app{
+.bg-red {
+    background: #f71735 !important;
+    ;
+}
+
+.bg-yellow {
+    background: #ff9f1c !important;
+    ;
+}
+
+.bg-turqu {
+    background: #41ead4 !important;
+    ;
+}
+
+.border-blue {
+    border: 1px solid #011627 !important;
+    color: #011627;
+}
+
+.border-red {
+    border: 1px solid #f71735 !important;
+    color: #f71735;
+}
+
+.border-yellow {
+    border: 1px solid #ff9f1c !important;
+    color: #ff9f1c;
+}
+
+.border-turqu {
+    border: 1px solid #41ead4 !important;
+    color: #41ead4;
+}
+
+html,
+body {
     background-color: #f4f7f6;
-    font-family: "Ubuntu",sans-serif;
+    font-family: "Ubuntu", sans-serif;
     font-size: 14px;
-    color: #5A5A5A;
+    color: #011627;
+    width: 100vw;
     height: 100%;
-    width: 100%;
 
 }
 
-/*border and color*/
-.b-orange{
-    border: 1px solid #e74c3c;
-    color: #e74c3c;
-}
-.b-blue{
-    border: 1px solid #007bff;
-    color: #007bff;
-}
-.b-pink{
-    border: 1px solid #ef476f;
-    color: #ef476f;
-}
-.b-black{
-    border: 1px solid #343a40;
-    color: #343a40;
-}
-.b-yellow{
-    border: 1px solid #ffd700 ;
-    color: #ffd700;
-}
-.b-green{
-    border: 1px solid #699864 ;
-    color: #699864;
-}
-/*====================================================.
-                     dash navigation top navs
-======================================================*/
-.nav-contents{
-    margin-left: 200px;
+.space-down {
+    margin-bottom: 50px;
 }
 
-/*---search box---*/
-.searchbar{
-    margin-bottom: auto;
-    margin-top: auto;
-    height: 38px;
-    background-color: #353b48;
-    border-radius: 60px;
-    padding: 7px;
-    }
-
-    .search_input{
-    color: white;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 0;
-    caret-color:transparent;
-    line-height: 30px;
-    transition: width 0.4s linear;
-    }
-
-    .searchbar:hover > .search_input{
-    padding: 0 10px;
-    width: 200px;
-    caret-color:red;
-    transition: width 0.4s linear;
-    }
-
-    .searchbar:hover > .search_icon{
-    background: white;
-    color: #e74c3c;
-    }
-
-    .search_icon{
-    height: 25px;
-    width: 25px;
-    float: right;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    color:white;
-    text-decoration:none;
-    }
-
-    /*---top navs icons----*/
-    .icon-nav{
-        font-size:20px;
-        color: #353b48;
-        margin-left: 30px;
-    }
-    .present{
-        float: right;
-        margin-top: 0px;
-        padding-top: 0px;
-        height: 5px;
-        width: 5px;
-        border-radius: 10px;
-        background-color: #e74c3c;
-    }
-    .not-lists{
-        margin-top: 22px;
-        width:500px ;
-        height: 300px;
-        background-color: #353b48;
-        position: absolute;
-        right: 110px;
-        border-radius: 10px;
-        color: #999;
-        display: none;
-
-    }
-    .lists-items{
-        margin-top:20px;
-        font-size: 17px;
-        border-bottom:1px solid #1f2125;
-        left: 2;
-        margin-right: 10px;
-        position: absolute;
-        width: 85%;
-        padding-bottom: 20px;
-    }
-    .not-header{
-    font-family: "Ubuntu",sans-serif;
-    margin-left: 10px;
-
-    font-weight: bolder;
-    }
-    .setting-content{
-        width: 240px;
-        height: 300px;
-        background-color: #e74c3c;
-        position: absolute;
-        right: 60px;
-        border-radius: 10px;
-        color: white;
-        display: none;
-        margin-top: 22px;
-        border:1px solid white;
-    }
-    .set-header{
-        font-family: cursive;
-        font-weight: bolder;
-        font-size: 15px;
-        padding: 5px;
-        margin-top: 10px;
-
-    }
-/*====================================================
-                     dash navigation side navs
-======================================================*/
-
-#dash-content{
-    padding-top: 65px;
-}
-#sidenav {
-    height: 100%;
-    width: 230px;
+/*==================nav bar==================*/
+#navbar {
+    height: 70px;
+    background: #fff;
     position: fixed;
-    z-index: 1;
-    left: 0;
-    overflow-x: hidden;
+    width: 100%;
     overflow: hidden;
+    z-index: 99;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
 
-  }
-  .user-account{
-      margin: 20px;
-  }
+.logo-img {
+    height: 50px;
+    width: 100px;
+    margin-left: 60px;
+    margin-top: 10px;
+}
 
-  .profile-pic{
+.toggle-nav {
+    display: none;
+    float: right;
+}
 
+.top-nav-list li {
+    display: inline;
+    padding: 10px
+}
+
+.top-nav-list li a i {
+    margin-top: 27px;
+    font-size: 17px
+}
+
+/*===================search bar=====================*/
+/*====================sidenavs=====================*/
+
+
+.side-bar {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 250px;
+    background-color: #f4f7f6;
+    height: 100%;
+    float: left;
+    margin-top: 65px;
+    position: fixed;
+    left: 5px;
+    z-index: 9;
+}
+
+.user-account {
+    margin: 20px;
+}
+
+.user-account .user-photo {
     width: 50px;
     vertical-align: top;
-    border: 2px solid #dfdfdf;
-    height: 50px;
+    border: 2px solid #dfdede;
     float: left;
-    margin-left: 8px;
+    margin-right: 7px;
+}
 
+.rounded-circle {
+    border-radius: 50% !important;
 }
-.bus-displaye{
-    width: 150px;
-    border: 2px solid #dfdfdf;
-    height: 150px;
-    margin-top:0;
-    padding-top: 0;
-}
-.round-pic{
-    border-radius: 50%!important;
-}
-.profile-name{
-    margin-top: 7px;
-    margin-left: 60px;
-}
-.user-name{
-    color: #303030;
-    font-family: Ubuntu,sans-serif;
-}
-.user-name:hover{
-    color: #303030;
-    text-decoration: none;
-    font-family: Ubuntu,sans-serif;
-}
-.account{
-    background-color: #303030;
-    width: 130px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 5px;
-    list-style-type: none;
-    display: none;
-    z-index:99;
-    content: attr(data-tooltip);
-    position: absolute;
 
-    }
-.account li a{
-    color: white;
-    text-decoration: none;
+.user-account.dropdown {
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    text-align: left;
+}
 
-    }
-.account li{
-    padding-top: 10px;
-    }
-.account li a:hover{
-    color: white;
-    text-decoration: none;
-    }
-.panel-title{
-    margin-top: 25px;
-    width:100%;
+.user-account .dropdown .dropdown-menu {
+    border-radius: .55rem;
+    transform: none !important;
+    border: none;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    background: #17191c;
+    color: #fff;
+    margin-top: 50px;
+    margin-left: 50px;
+}
 
-    }
-.title-panel{
-    margin-left: 0;
-    list-style-type: none;
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.flipInY {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    -webkit-animation-name: flipInY;
+    animation-name: flipInY;
+}
+
+.user-account .dropdown .dropdown-menu a {
+    color: #fff;
+    padding: 10px 5px;
+}
+
+.user-account ul li {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.user-account ul li i {
+    margin-right: 10px;
+}
+
+.user-account ul li:first-child {
+    margin-top: 10px;
+}
+
+.user-account .dropdown .dropdown-menu a:hover {
+    color: #41ead4;
+}
+
+.user-account .dropdown .dropdown-menu li.divider {
+    border-bottom: 1px solid #444;
+    margin: 10px 0;
+}
+
+.side-nav-list {
+    margin: 0;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.main-item {
     padding: 10px;
-    padding-bottom: 0 !important;
-    padding-left: 30px !important;
-    border: 1px solid #dee2e6;
-    border-bottom: none !important;
-    border-left: none !important;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-top: 10px;
+}
+
+.main-item a i {
     font-size: 17px;
-    color: #007bff;
-    border-radius: 5px;
-
-    }
-.panel-border{
-    border-bottom:1px solid #dee2e6;
-    width: 100%;
-}
-.side-navs{
-margin-top: 10px;
-overflow: hidden;
+    margin-right: 5px;
 }
 
-.main-menu{
-padding-left:0px ;
-margin-top: 10px;
-margin-left: 0px;
-
-}
-.main-menu li{
-    padding-top:12px;
-    padding-bottom:12px;
-    margin-top: 8px;
-    }
-    .sub-menu{
-        margin-left: 0;
-        padding-left: 0;
-    }
-    .sub-menu a{
-        margin-left: 0;
-        padding-left: 0;
-    }
-.main-menu li a{
-   padding-left: 20px;
-   font-size: 17px;
-   color: #303030;
-   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-    .dropdown-btn{
-        padding-left: 20px;
-        font-size: 17px;
-        color: #303030;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        background: none;
-        outline: none;
-        text-decoration: none;
-        display: block;
-        border: none;
-    }
-    /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-.drop-down {
+.nav-dropdown {
+    padding: 0;
+    margin-left: 10px;
     display: none;
-    background-color:#f4f7f6;
-    /*  z-index:99;
-    content: attr(data-tooltip);
-    position: absolute;*/
+}
 
+.nav-dropdown li {
+    padding: 10px;
+}
 
-  }
-
-  /* Optional: Style the caret down icon */
-  .fa-caret-down {
+/***======main content===============**/
+.content {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: calc(100% - 270px);
     float: right;
-    padding-right: 8px;
-  }
-
-
-
-
- .main-menu li:hover{
-   background-color: #eee9e9;
-    }
-.main-menu li a:hover{
-    text-decoration: none;
-    }
-.active{
-   background-color: #eee9e9;
-    }
-.icon-menu{
-   color:#ef476f;
-   padding-right: 10px;
+    position: relative;
+    margin-top: 80px;
+    padding: 0 10px;
+    overflow: hidden;
+    overflow-x: hidden;
+    padding-right: 30px;
 }
 
-  /*====================================================
-                     dash content
-======================================================*/
-
-.dash-card{
-width: 98%;
-height: 120px;
-margin-right: 2%;
-margin-top: 15px;
-border-radius: 7px;
-margin-bottom: 20px;
-}
-.dash-card1{
-    background-color: #ef476f;
-}
-.dash-card2{
-    background-color: #007bff;
-}
-.dash-card3{
-    background-color: #353b48;
-}
-.dash-card4{
-    background-color: #e74c3c;
-}
-
-.number{
-color: white;
-width: 100%;
-text-align: center;
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-font-size:25px ;
-padding-top: 30px;
-font-weight: bolder;
-}
-
-
-.dashcard-icon {
-    margin-left:15px ;
-    font-size:50px;
-    color:white;
-    float: left;
-    margin-top:30px;
-
-}
-.dash-text{
-    color: white;
+.btn {
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
     text-align: center;
-    font-weight: bolder;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.dash-content-card{
-    background-color: white;
-    height:500px;
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 20px;
+.btn-toggle-fullwidth {
+    z-index: 99;
+    margin-top: -6px;
+    padding-left: 0 !important;
 }
-.dah-contents-card{
-    height: 80px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border-bottom:1px solid #f7f7f7
-}
-.card-icon{
-    font-size: 18px;
-    margin-top: 35px;
-    float: left;
-    margin-left: 20px;
-}
-.card-text{
+
+.btn-link {
+    font-weight: 400;
     color: #007bff;
-    font-family:"Ubuntu",sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    padding-top: 35px;
-    padding-left: 60px;
-
-
-}
-.card-number{
-
-    padding-left:10px;
-    padding-right: 10px;
-    padding-top:2px;
-    padding-bottom: 2px;
-    position: absolute;
-    right:80px ;
-    border-radius: 5px;
-    font-size: 14px;
-
-
-}
-#main-dashbord{
-    margin-left: 250px;
-    padding: 0px 10px;
-    margin-top: 15px;
-
-}
-.dash-statistic{
-background-color: white;
-height: 600px;
-width: 100%;
-margin: 5px;
-border-radius: 15px;
-}
-.dash-cont-header{
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-font-size: 19px;
-padding: 20px;
+    text-decoration: none;
 }
 
-.link-dash{
-    font-size: 14px;
+.block-header {
+    margin-bottom: 20px;
 }
 
-.panel-cont{
-    margin-top: 1px;
+h2 {
+    display: block;
+    font-size: 20px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin: 0 !important;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
-.company-admin{
-    background-color: white;
-    margin-top: 29px;
-    height: 500px;
-    border-radius: 20px;
-    width: 100%;
+.block-header .breadcrumb {
+    background: transparent;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    border-radius: .25rem;
 }
 
-.carding {
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+    padding-left: .5rem;
+}
+
+.box {
     border-radius: .55rem;
-    background: #fff;
     transition: .5s;
     border: 0;
     margin-bottom: 30px;
     position: relative;
     width: 100%;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
-    margin-top: 29px;
-    height: 500px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    color: #fff;
+    height: 140px;
 }
-.cards {
-    border-radius: .55rem;
-    background: #fff;
-    transition: .5s;
-    border: 0;
-    margin-bottom: 30px;
-    position: relative;
-    width: 100%;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
-    margin-top: 29px;
 
+.text-center {
+    text-align: center !important;
 }
-.card .header {
-    color: #444;
-    padding: 20px;
-    position: relative;
-    box-shadow: none;
-}
-.card .header h2 {
-    font-size: 16px;
-    color: #444;
-    position: relative;
-}
-.card .body {
+
+.box.body {
     color: #444;
     padding: 20px;
     font-weight: 400;
 }
 
-
-.contain{
-
-    margin:0 45px 0 45px ;
-}
-.holiday-list-header{
-    background-color: #343a40;
-    padding: 8px;
-    margin-top: 25px;
-    color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    border-radius: .25rem;
-    border-color: #454d55;
-    border-bottom-style: solid;
-    border: 1px;
-}
-.event{
-    margin-top: 20px;
-}
-.card-event{
-    min-height: 400px;
-    background-color: #fff;
-    border-radius: .55rem;
-    border-color: #454d55;
-    border-bottom-style: solid;
-    border: 1px;
-}
-.card-header{
-    background-color: #fff;
-    border-radius: .55rem;
-    border-color: #454d55;
-    border-bottom-style: solid;
-    border: 1px;
-    margin-bottom: 20px;
-}
-.add-event-botton{
-    width: 100%;
-    background-color: #007bff;
-    color: white;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    border-radius: .25rem;
-}
-.button-text{
-    margin-left: 130px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-
-}
-.image-company-show{
-    height: 100px;
-    width: 150px;
-}
-.page-calendar .event-name h6 {
-	text-transform: capitalize
+.text-light {
+    color: #f8f9fa !important;
 }
 
-.page-calendar .event-name h4 {
-	font-size: 25px;
-	line-height: 24px
+.box.p-15 {
+    padding: 15px !important;
 }
 
-.calender{
-    height: 100%;
-}
-.page-calendar .event-name h4 span {
-	font-size: 11px;
-	line-height: 16px
-}
-
-.page-calendar .event-name p {
-	overflow: hidden;
-	white-space: nowrap;
-	width: 100%;
-	text-overflow: ellipsis
-}
-
-.page-calendar .event-name address {
-	font-size: 11px
-}
-
-.page-calendar .event-name address i {
-	font-size: 12px
-}
-.headers{
-    height: 80px;
-}
-.bus-header{
-    height: 100px;
-    border-bottom: 5px solid salmon;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    border-right: 5px solid salmon;
-    border-left: 5px solid salmon;
-    border-top-right-radius: 36px;
-    border-top-left-radius: 36px;
-
-}
-.header-bus{
-    margin-top: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.box h3 {
+    display: block;
     font-size: 20px;
-}
-.bus-seat{
-    border-left: 5px solid salmon;
-    border-right: 5px solid salmon;
-    border-bottom: 5px solid salmon;
-    padding-left: 15px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
+    font-weight: 600;
+    padding-top: 40px;
 }
 
-.bus-display{
-background-color: #fff;
-    margin-top: 250px;
-    padding: 30px;
-    border-radius: 7px;
-   }
-
-.display{
-
- margin-top: 100px;
-}
-.seat{
-    height: 35px;
-    width: 20px;
+.box span {
+    font-size: 17px;
 }
 
-.seat-icon{
-
-    cursor:pointer;
-    margin-bottom: 5px;
-    background-size: cover;
-    background-image: url(../images/seat-available.png);
-    height: 30px;
-    width: 35px;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: transparent;
-    font-size: 12px;
-    border: none;
+.element-style {
+    border-radius: .55rem;
+    background: #fff;
+    width: 100%;
+    padding: 20px;
     overflow: hidden;
+    height: 400px;
 }
-.booked{
 
-    cursor:not-allowed;
-    margin-bottom: 5px;
-    background-size: cover;
-    background-image: url(../images/seat-booked.png);
-    height: 30px;
-    width: 35px;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    padding: 5px;
-    padding-left:7px;
-    font-size: 12px;
-    border: none;
-    overflow: hidden;
+#curve_chart {
+    background: transparent !important;
+    width: 100% !important;
 }
-.selected{
 
-    cursor:pointer;
-    margin-bottom: 5px;
-    background-size: cover;
-    background-image: url(../images/seat-selected.png);
-    height: 30px;
-    width: 35px;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-color: transparent;
-    font-size: 12px;
-    border: none;
-    overflow: hidden;
+.dash-items {
+    margin: 0;
+    padding: 0;
 }
-.bus-map{
-    width: 300px;
 
+.dash-items li {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-left: 0;
+    border-right: 0;
+    padding: 20px 20px;
+    border-color: #f7f7f7;
 }
-.booking-bus{
 
-    padding: 120px;
-    border-radius: 40px;
+.dash-items li:first-child {
+    border-top: 0;
 }
-.j-detail{
 
-    border-radius: 20px;
+.dash-items li:last-child {
+    border-bottom: 0;
+}
 
+.dash-items li a {
+    font-size: 19px;
+}
+
+.dash-items li a i {
     margin-right: 10px;
 }
-.b-detail{
 
-    border-radius: 20px;
-
-    margin-left: 10px;
+.dash-number {
+    padding: 3px 10px;
+    float: right;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+    font-size: 14px;
 }
-.ticket-no{
-    padding-right: 10px;
+.todo-lists {
+    margin-top: 30px;
+    margin: 0;
+    padding: 0;
 }
-.drpdwn-list {
+.todo-lists li{
+    margin-bottom: 20px;
+    padding: 10px 5px;
+    padding-left: 10px;
+}
+.todo-icon{
+    float: left;
+    font-size: 17px;
+}
+#todo-box{
     display: none;
 }
-
-/*----------------------------*\
-	Sections
-\*----------------------------*/
-
-.section {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-
-  .section-grey {
-    background: #F6F7F8;
-  }
-
-  .section-title {
-    position: relative;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    border-bottom: 1px solid #DADADA;
-  }
-
-  .section-title .title {
-    display: inline-block;
-    text-transform: uppercase;
-  }
-
-  .section-title:after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1.5px;
-    height: 3px;
-    width: 60px;
-    background-color: blue;
-  }
-  /*----------------------------*\
-	Inputs
-\*----------------------------*/
-
-.input {
-    width: 100%;
-    height: 40px;
-    padding: 0px 15px;
-    border: none;
-    background-color: transparent;
-    -webkit-box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 5px transparent;
-    box-shadow: 0px 0px 0px 1px #DADADA inset, 0px 0px 0px 5px transparent;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all;
-  }
-
-  .input:focus {
-    -webkit-box-shadow: 0px 0px 0px 1px maroon inset, 0px 0px 0px 0px maroon;
-    box-shadow: 0px 0px 0px 1px maroon inset, 0px 0px 0px 0px maroon;
-  }
-
-  textarea.input {
-    padding: 15px;
-  }
-
-  .input-checkbox .caption {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: 0.3s max-height;
-    transition: 0.3s max-height;
-  }
-
-  .input-checkbox>label {
-    color: #30323A;
-  }
-
-  .input-checkbox input[type="checkbox"]:checked+label+.caption, .input-checkbox input[type="radio"]:checked+label+.caption {
-    max-height: 800px;
-  }
-  .contain{
-      margin-left: 200px;
-      margin-right: 100px;
-  }
-
-
-  .pull-right {
-    float: none !important;
-    margin-top: 10px;
-  }
-  .primary-btn {
-    display: inline-block;
-    padding: 3px 7px;
-    text-transform: uppercase;
-    font-weight: 700;
-    border: none;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all;
-
-    line-height: 40px;
-    text-align: center;
-    border: none;
-    color: #FFF;
-    background-color: blue;
-  }
-  .primary-btn:hover, .primary-btn:focus {
-    color: #FFF;
-    background-color: #30323A;
-  }
-/*-------------navigation-------------------*/
-#navbar ul{
-
-    font-size: 20px;
-    padding: 5px;
+.todo-input label{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    float: left;
+    margin-left: 5px;
+    margin-top: 2px;
 }
-.list{
-  margin-left: 20%;
-  margin-top: 0px;
-}
-#navbar ul li{
-    display: inline;
+.todo-content{
+    margin-top: 2px;
+    font-size: 17px;
     margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-
 }
-#navbar ul li a{
-    color: #8470ff;
-    text-decoration:none;
+.checked {
+    text-decoration: line-through;
+    font-style: italic;
+    margin-left: 40px;
 }
-#navbar ul li a:hover{
-    color: #fff;
-    text-decoration: none;
-    background-color:grey;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 20px;
-
+.img{
+    background-image: url('../images/tick.png');
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+   background-repeat: no-repeat;
 }
-#navbar{
-    background-color: #fff;
-    top: 0;
-  	left: 0;
-  	z-index: 9999;
-     width: 100%;
-     height: 80px;
-    }
-
-@media only screen and (max-width: 768px) {
-   #navbar ul li{
-       display: none;
-   }
-   .navbar ul li{
-       display: block;
-   }
-   #navbar{
-background-color: #fff;
+footer{
+    background: #011627;
+    width: 100%;
 }
-.toggle-nav{
-font-size: 25px;
-float: right;
+/*=====index=====*/
+.list-display-box{
+    width: 100%;
+    border-radius: .55rem;
+    background: #fff;
+    padding: 20px;
 }
-
-}
-
-    @media only screen and (min-width: 768px) {
-        .nav-bar{
-            background-color: #fffcf9;
-        }
-        #navbar{
-
-            position: fixed;
-            width: 100%;
-            z-index: 9999;
-
-        }
-        .toggle-nav{
-         display: none;
-        }
-    }
-.logo{
-    font-size: 30px;
-}
-.style-list-table{
-    font-size: 13px;
-}
-
-
-/*============invoice=========================*/
-
-.invoice-box {
-    max-width: 800px;
-    margin: auto;
-    padding: 30px;
-    border: 1px solid #eee;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
-    font-size: 14px;
-    line-height: 24px;
-    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-    color: #555;
-}
-
-
-
-
-
-
-
-.invoice-box table tr.heading td {
-    background: #eee;
-    border-bottom: 1px solid #ddd;
-    font-weight: bold;
-}
-
-.invoice-box table tr.details td {
-    padding-bottom: 20px;
-}
-
-.invoice-box table tr.item td{
-    border-bottom: 1px solid #eee;
-}
-
-.invoice-box table tr.item.last td {
-    border-bottom: none;
-}
-
-.invoice-box table tr.total td:nth-child(2) {
-    border-top: 2px solid #eee;
-    font-weight: bold;
-}
-
-@media only screen and (max-width: 600px) {
-    .invoice-box table tr.top table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-
-    .invoice-box table tr.information table td {
-        width: 100%;
-        display: block;
-        text-align: center;
-    }
-}
-
-/** RTL **/
-.rtl {
-    direction: rtl;
-    font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-}
-
-.rtl table {
-    text-align: right;
-}
-
-.rtl table tr td:nth-child(2) {
-    text-align: left;
-}
-

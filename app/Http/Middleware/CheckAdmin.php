@@ -16,9 +16,14 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if( Auth::user()->role != 1){
+        if(Auth::check()){
+            if( Auth::user()->role != 1){
                 return redirect('Page');
         }
+        }else{
+            return redirect('Page');
+        }
+
         return $next($request);
     }
 }

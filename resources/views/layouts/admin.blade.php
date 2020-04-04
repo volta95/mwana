@@ -1,198 +1,174 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="{{ asset('css/panel.css') }}">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Sales', 'Expenses'],
+                ['2004', 1000, 400],
+                ['2005', 1170, 460],
+                ['2006', 660, 1120],
+                ['2007', 1030, 540]
+            ]);
 
-    <!-- Scripts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                }
+            };
 
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+            chart.draw(data, options);
 
+            var datas = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7]
+            ]);
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-    <link href="https://unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.css" rel="stylesheet">
-    <link href="{{ asset('css/panel.css') }}" rel="stylesheet" type="text/css">
- <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            var optionss = {
+                title: 'My Daily Activities',
+                pieHole: 0.4,
+                legend: 'none'
+            };
+
+            var charts = new google.visualization.PieChart(document.getElementById('donutchart'));
+            charts.draw(datas, optionss);
+        }
+    </script>
 
 </head>
-<body id="app">
-    <div>
-        @if(auth::check())
-        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-white shadow-sm">
 
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img  class="logo" src="{{asset('images/logo.png')}}">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+<body class="d-flex flex-column h-100">
 
 
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->fname }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right account animated flipInY" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-
-
-                    </ul>
-
+    <div id="navbar">
+        <div class="row">
+            <div class="col-lg-9 col-md-3 col-sm-4">
+                <div class="logo">
+                    <img src="images/huper.png" class="logo-img">
+                    <span class="toggle-nav"><a href="#"><i class="fas fa-bars"></i></a></span>
+                </div>
             </div>
-        </nav>
-        <div id="dash-content">
-        <div id="sidenav">
-                <div class="user-account">
+            <div class="col-lg-3 col-md-9 col-sm-8">
+                <ul class="top-nav-list">
 
-                                <img class="profile-pic round-pic" src="{{asset('images/user.png')}}">
+                    <li><a href=""><i class="far fa-envelope"></i> </a></li>
+                    <li><a href=""><i class="far fa-comments"></i></a></li>
+                    <li><a href=""><i class="far fa-bell"></i></a></li>
+                    <li><a href=""><i class="fas fa-sliders-h"></i></a></li>
+                    <li><a href="#" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i></a></li>
 
-                            <div class="profile-name">
-                                <span>Welcome,</span><br>
-                                <a href="#" class="dropdown-bt user-name" data-toggle="dropdown"><strong>{{Auth::user()->name}}</strong></a>
-                                <ul class="account animated flipInY">
-                                    <li><a href="page-profile2.html"><i class="icon-user"></i>My Profile</a></li>
-                                    <li><a href="app-inbox.html"><i class="icon-envelope-open"></i>Messages</a></li>
-                                    <li><a href="javascript:void(0);"><i class="icon-settings"></i>Settings</a></li>
-                                    <li><a href="{{ route('logout') }}" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();"><i class="icon-power"></i>Logout</a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-4">
-                                <h6>5+</h6>
-                                <small>Experience</small>
-                            </div>
-                            <div class="col-4">
-                                <h6>400+</h6>
-                                <small>Users</small>
-                            </div>
-                            <div class="col-4">
-                                <h6>80+</h6>
-                                <small>Tickets</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel-title row" >
-                            <div class="title-panel col-lg-3 col-md-3 col-sm 5">Administrator</div>
-                            <div class="panel-border col-lg-9 col-md-9 col-sm 7" ></div>
-                        </div>
-
-                        <ul class="main-menu metismenu">
-                                <li class="active"><a href="{{ url('admin/home') }}"><i class="fa fa-tachometer-alt icon-menu"></i><span>Dashboard</span></a></li>
-                                <li><a href="{{ url('/') }}"><i class="fa fas fa-landmark icon-menu"></i><span>Smart Market</span></a></li>
-                                <li><a href="{{ url('/Business') }}"><i class="fa fa-globe icon-menu"></i><span>Smart Business</span></a></li>
-                                <li class="submenu">
-                                    <a href="#"class="dropdown-btn"><i class="fa fa-mail-bulk icon-menu"></i>Product Category
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                      <ul  class="drop-down">
-                                        <li><a href="{{ url('companies') }}">View all Category </a></li>
-                                        <li><a href="{{ url('companies/create') }}">Add new company</a></li>
-
-                                    </ul>
-
-                                </li>
-                                <li class="submenu">
-                                    <a href="#"class="dropdown-btn"><i class="fa fa-bus icon-menu"></i>Product subcategory
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                      <ul  class="drop-down">
-                                        <li><a href="{{ url('buses') }}">View all subcategory</a></li>
-
-                                        <li><a href="{{ url('buses/create') }}">Add new subcategory</a></li>
-
-                                    </ul>
-
-                                </li>
-
-
-
-
-                                <li class="submenu">
-                                        <a href="#"class="dropdown-btn"><i class="fa fa-user-friends icon-menu"></i><span>Smart Business topic</span>
-                                            <i class="fa fa-caret-down"></i>
-                                        </a>
-
-                                        <ul  class="drop-down">
-                                        <li><a href="{{ url( 'users') }}">View all topic</a></li>
-                                        <li><a href="{{ url('buses/create') }}">Add new topic</a></li>
-                                    </ul>
-                                </li>
-
-
-                                <li class="submenu">
-                                    <a href="#"class="dropdown-btn"><i class="fa fa-road icon-menu"></i>Route
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                      <ul  class="drop-down">
-                                        <li><a href="{{ url( 'routes') }}">View all routes</a></li>
-                                        <li><a href="{{ url('routes/create') }}">Add new route</a></li>
-
-                                    </ul>
-
-                                </li>
-                            </ul>
-
-
-
-
-        </div>
-        @endif
-        <div id="main-dashbord">
-            @yield('content')
-        </div>
-
+                </ul>
+            </div>
         </div>
     </div>
-    <script src="https://unpkg.com/bootstrap-table@1.15.2/dist/bootstrap-table.min.js"></script>
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="{{ asset('js/script.js') }}" defer></script>
+    <div class="contents">
+        <div class="side-bar display">
+            <div class="user-account">
+                <img src="images/profile.jpeg" class="nav-profile">
+                <div class="dropdown">
+                    <span>Welcome,</span><br>
+                    <a href="javascript:void(0);" class="dropdown-toggle user-name" data-toggle="dropdown" aria-expanded="false"><strong>Masenu Msuya</strong></a>
+                    <ul class="dropdown-menu dropdown-menu-right account animated flipInY" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 80%; left: 0px; transform: translate3d(-70px, 42px, 0px);">
+                        <li><a href=""><i class="far fa-user"></i>My Profile</a></li>
+                        <li><a href=""><i class="far fa-envelope"></i>Messages</a></li>
+                        <li><a href="javascript:void(0);"><i class="fas fa-user-cog"></i>Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" aria-haspopup="true" aria-expanded="false" v-pre onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"><i class="fas fa-power-off"></i>Logout</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+
+            <ul class="side-nav-list">
+                <li class="main-item"><a href="/home"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
+                <li class="main-item"><a href=""><i class="far fa-envelope"></i>Inbox App</a></li>
+                <li class="main-item"><a href=""><i class="far fa-comments"></i>Chat App</a></li>
+                <li class="main-item dropdown-link"><a class="d-link" href="#"><i class="fas fa-bars"></i>Product Category <i class="arrow fas fa-chevron-left"></i></a>
+                    <ul class="nav-dropdown">
+                    <li><a href="{{route('Category.index')}}"><i class="fas fa-ellipsis-h"></i> View Categories</a></li>
+                    <li><a href="{{ route('Category.create')}}"><i class="fas fa-ellipsis-h"></i> Add Categories</a></li>
+                    </ul>
+                </li>
+                <li class="main-item dropdown-link"><a href="#"><i class="fas fa-store-alt"></i>Product Subcategory<i class="arrow fas fa-chevron-left"></i></a>
+                    <ul class="nav-dropdown">
+                        <li>
+                        <a href="{{url('Subcategory')}}"><i class="fas fa-ellipsis-h"></i>view subcategories</a>
+                        </li>
+                        <li>
+                        <a href="{{ url('Subcategory/create') }}"><i class="fas fa-ellipsis-h"></i>Add subcategory</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="main-item dropdown-link"><a href="#"><i class="fas fa-users"></i>Forums category<i class="arrow fas fa-chevron-left"></i></a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href=""><i class="fas fa-ellipsis-h"></i>view Categories</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-ellipsis-h"></i>Add category</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="main-item dropdown-link"><a href="#"><i class="fas fa-list"></i>Forums Subcategory<i class="arrow fas fa-chevron-left"></i></a>
+                    <ul class="nav-dropdown">
+                        <li>
+                            <a href=""><i class="fas fa-ellipsis-h"></i>view subcategories</a>
+                        </li>
+                        <li>
+                            <a href=""><i class="fas fa-ellipsis-h"></i>add subcategory</a>
+                        </li>
+                    </ul>
+
+                </li>
+                <li class="main-item"><a href=""><i class="far fa-user"></i>Registered user's</a></li>
+
+            </ul>
+
+
+        </div>
+        <main role="main" class="flex-shrink-0 content">
+        @yield('contents')
+        </main>
+        <footer class="footer mt-auto py-3">
+            <img src="images/huper.png" class="footer-logo">
+        </footer>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+
 
 </body>
 </html>
+

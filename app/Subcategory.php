@@ -23,7 +23,7 @@ class Subcategory extends Model
 
     public function category()
     {
-        return $this->has('App\Category', 'category_id', 'id');
+        return $this->belongsTo('App\Category', 'category_id', 'id');
     }
 
 }
